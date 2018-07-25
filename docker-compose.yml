@@ -1,0 +1,19 @@
+version: '3'
+services:
+    elasticsearch:
+         build: ./elasticsearch
+#         image: es:5.3.3 # имя собраного образа
+         ports:
+             - "9200:9200"
+         environment:
+             - bootstrap.memory_lock=true
+             - script.engine.groovy.inline.search=true
+             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+         volumes:
+             - ./elasticsearch/data:/usr/share/elasticsearch/data
+             - ./elasticsearch/logs:/usr/share/elasticsearch/logs
+         ulimits:
+           memlock:
+             soft: -1
+             hard: -1
+#         mem_limit: 1g
