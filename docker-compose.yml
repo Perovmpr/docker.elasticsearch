@@ -9,9 +9,9 @@ services:
              - bootstrap.memory_lock=true
              - script.engine.groovy.inline.search=true
              - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-         volumes:
-             - ./elasticsearch/data:/usr/share/elasticsearch/data
-             - ./elasticsearch/logs:/usr/share/elasticsearch/logs
+#         volumes:
+#             - ./elasticsearch/data:/usr/share/elasticsearch/data
+#             - ./elasticsearch/logs:/usr/share/elasticsearch/logs
          ulimits:
            memlock:
              soft: -1
